@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <button class="navbar-toggler border-0"  type="button" data-toggle="collapse" data-target="#search" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </button>
+  <a class="navbar-brand mx-auto m-0 p-0 text-center navbar-toggler border-0 " routerLink="../home"><img class="m-0 p-0" src="/assets/images/logo-sm.png" height="60px"/></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav float-left text-center col col-lg-3 col-md-12 col-sm-12">
+      <li class="nav-item">
+        <a routerLink="/home" class="nav-link text-white">Home <span class="sr-only">(current)</span></a>
+        <div class="line-nav"></div>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/blogs" class="nav-link text-white">Blogs</a>
+        <div class="line-nav"></div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link text-white" (click)="goDown()">Users</a>
+        <div class="line-nav"></div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Services</a>
+        <div class="line-nav"></div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Portfolio</a>
+        <div class="line-nav"></div>
+      </li>
+    </ul>
+    <a class="mx-auto m-0 p-0 text-center" href="#"><img class="m-0 p-0 d-none d-lg-block" src="/assets/images/logo-sm.png" height="60px"/></a>
+   
+  </div>
+  <form class="my-2 my-lg-0 mt-2 collapse navbar-collapse col col-lg-3 col-sm-12 col-md-12 input-group" id="search">
+    <input [disabled]="!loggedinzl" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [value]="searchWord" name="searchValue" [(ngModel)]="searchWord">
+    <button [disabled]="!loggedinzl" [routerLink]="'/search/'+searchWord" (click)="refreshme()" class="btn btn-danger my-2 my-sm-0 input-group-btn ml-2" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+  </form>
+</nav>
+<div class="user-section text-white">
+  <div class="container w-100">
+    <div class="row">
+      <div class="col col-12 col-md-6 col-lg-6 text-lg-right text-md-right text-center">
+        <div class="mx-lg-none mx-md-none d-lg-block d-md-block d-inline-block mx-auto">
+        <img class="img-fluid img-thumbnail user-img float-left" width="40px" height="40px" [(src)]="zpho" *ngIf="loggedinzl"/>
+        <div class="user-data float-left ml-2 text-left" *ngIf="loggedinzl">
+           You are always welcomed, 
+        <br /> {{zuser}}
+        </div>
+        <div class="user-data float-left ml-2 text-left" *ngIf="!loggedinzl">
+         Welcome to our blogging application,<br />
+         Guest
+         </div>
+      </div>
+      </div>
+      <div class="col col-12 col-md-6 col-lg-6 text-lg-right text-md-right text-center" *ngIf="loggedinzl">
+        <a class="btn btn-danger mr-1 m-2" routerLink="../profile">My blogs</a>
+        <a class="btn btn-danger m-2 mr-1 ml-1" routerLink="../profile">Edit profile</a>
+        <button class="btn btn-danger m-2 ml-1" (click)="logouter()"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+      </div>
+      <div class="col col-12 col-md-6 col-lg-6 text-lg-right text-md-right text-center" *ngIf="!loggedinzl">
+          <button class="btn btn-danger mr-1 m-2" data-toggle="modal" data-target="#exampleModalLong" *ngIf="containerCase">Join now</button>
+          <button class="btn btn-danger mr-1 m-2" (click)="joiner()" *ngIf="!containerCase">Join now</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" *ngIf="containerCase">
+  <div class="modal-dialog mx-auto" role="document">
+    <div class="modal-content">
+        
+      <div class="modal-body col col-12">
+        <app-getin></app-getin>
+      </div>
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

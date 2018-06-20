@@ -1,0 +1,25 @@
+<div class="latest text-center p-3 text-white bg-dark">
+  <h3>Latest topics</h3>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-12 col-lg-4 p-2" *ngFor="let blog of blogsShow">
+        <div class="latest-panel text-left">
+          <img class="image-fluid position-absolute increaser" [src]="zurl + blog.blog_photo" width="120%"/>
+          <div class="b-title p-4">
+            <div class="position-relative ovh h5 p-2">
+              <div class="pusher">{{blog.blog_title}}</div>
+              <div class="arrow"></div>
+            </div>
+            <div class="latest-info">
+              <div class="p-2 h5 float-left mx-auto">By.{{blog.username}} - {{blog.blog_date}}</div>
+            </div>
+            <div class="latest-icons">
+              <div class="icon text-center p-1 m-1"><i class="fa fa-thumbs-up"></i><br>{{blog.blog_likes.length}}</div>
+              <div class="icon text-center p-1 m-1"><i class="fa fa-eye"></i><br>10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

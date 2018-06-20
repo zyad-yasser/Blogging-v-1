@@ -1,0 +1,67 @@
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none !important;
+}
+.latest {
+    font-size:30px;
+}
+.latest-panel {
+    min-height: 250px;
+    border:15px #111111 solid;
+    background-size: 150%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    background-color: #FFF;
+}
+.container-fluid {
+    width:95%;
+}
+.arrow {
+    z-index:1;
+    top:0px;
+    left:0px;
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-top: 0px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #ee0000;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.arrow-load {
+    border-left: 1500px solid #ee0000;
+    border-bottom: 1500px solid transparent;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.ovh {
+    overflow: hidden !important;
+}
+.pusher {
+    position: relative;
+    z-index:2;
+    cursor: pointer;
+}
+.latest-info {
+    position: absolute;
+    bottom:-100px;
+}
+.icon {
+    width: 40px;
+    height:40px;
+    background-color:#ee0000;
+    font-size: 14px;
+    line-height: 15px;
+}
+.latest-icons {
+    display: none;
+    position: absolute;
+    right:-4px;
+}

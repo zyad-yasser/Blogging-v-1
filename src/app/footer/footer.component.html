@@ -1,0 +1,34 @@
+<footer class="w-100 text-center text-white">
+    <div class="container">
+  <div class="row w-100 m-0 p-0">
+    <div class="col col-12 col-lg-4 h-100">
+        <h4 class="footer-bordering p-2 w-75 mx-auto">Latest Bloggers</h4>
+
+        <div class="blog-user w-75 mx-auto mt-3" *ngFor="let user of users">
+        <div class="blog-user-ico float-left mr-2"><img class="" width="50px" height="50px"[(src)]="uri + user.user_photo"></div>
+        <div class="blog-user-data float-left text-left">{{user.user_name}}<p class="footer-user-date">Joined : {{user.user_date}}</p></div>
+        </div>
+
+    </div>
+    <div class="col col-12 col-lg-4 h-100">
+        <h4 class="footer-bordering p-2 w-75 mx-auto">Site sections</h4>
+        <div class="fonting-sections">
+        <a routerLink="/blogs" class="text-white"><h5 class="m-3 site-sec w-75 mx-auto p-1">Blogs</h5></a>
+        <h5 class="m-3 site-sec w-75 mx-auto p-1">Users</h5>
+        <h5 class="m-3 site-sec w-75 mx-auto p-1">Contact us</h5>
+        <h5 class="m-3 site-sec w-75 mx-auto p-1">Services</h5>
+        <h5 class="m-3 site-sec w-75 mx-auto p-1">Portfolio</h5>
+        </div>
+    </div>
+    <div class="col col-12 col-lg-4 h-100">
+        <h4 class="footer-bordering p-2 w-75 mx-auto">Technologies used</h4>
+        <div class="technologies w-100 mx-auto mt-3 p-4">
+        <img class="img-fluid" class=" w-50 m-3" src="/assets/images/t1.png"/>
+        <img class="img-fluid" class=" w-50 m-3" src="/assets/images/t2.png"/>
+        <img class="img-fluid" class=" w-50 m-3" src="/assets/images/t3.png"/>
+        </div>
+    </div>
+  </div>
+</div>
+</footer>
+<div class="footer-bottom text-center pt-3 text-white">Designed and developed by Eng.Zyad Yasser all rights reserved</div>

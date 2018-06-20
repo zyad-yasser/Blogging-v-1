@@ -1,0 +1,73 @@
+footer {
+    min-height: 360px;
+    background-color: #111111;
+}
+.container {
+    max-width: 1300px;
+}
+.col {
+    min-height: 360px; 
+}
+.blog-user {
+    cursor: pointer;
+    height:60px;
+    background-color: #666;
+    position: relative;
+    padding: 5px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.blog-user:hover {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color:#ee0000;
+}
+.blog-user-ico {
+    position: relative;
+    width: 50px;
+    height:50px;
+    border:1px #666 solid;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.blog-user-data {
+    margin-top: 3px;
+}
+.footer-bordering {
+    border-bottom: #ee0000 2px solid;
+    color:#CCC;
+}
+.technologies {
+    height:100%;
+}
+.fonting-sections {
+    font-size: 20x;
+}
+.site-sec {
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.site-sec:hover {
+    cursor: pointer;
+    background-color: #ee0000;
+    font-style: italic;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.footer-user-date {
+    display: none;
+}
+.footer-bottom {
+    border-top:1px solid #333;
+    height: 50px;
+    background-color: #0b0b0b;
+}

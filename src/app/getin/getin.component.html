@@ -1,0 +1,64 @@
+<div id="getin" class="getin text-center p-3 text-white" *ngIf="!loggedinzl">
+  <div class="container">
+    <div class="col col-12 col-lg-6 offset-lg-3 max-auto">
+      <div id="registerformer" class="loading p-5 mt-5" *ngIf="loading"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>
+      <form *ngIf="!hideRegform" class="registerform registerformshow">
+        <h1>Join us now</h1>
+        <div *ngIf="regerror" class="m-2">Error occured while registeration</div>
+        <div *ngIf="userexist" class="m-2">Sorry, the user exists</div>
+        <div id="userPhoto" (click)="changePhoto()" class="userPhoto d-flex mx-auto text-center justify-content-center align-self-center">
+            <i class="fa fa-user-o justify-content-center align-self-center userIco" aria-hidden="true"></i>
+            <img id="imgPreview" src="/assets/images/clr1.png" width="100px" height="100px" class="img-fluid position-absolute"/>
+        </div>
+        <input name="photo" type="file" class="d-none" id="inputer" (change)="displayPreview($event)" accept="image/x-png,image/gif,image/jpeg"/>
+        <label class="form-inline mt-2" for="username">Username :</label><input required id="username" class="form-control form-inline" name="regUser" [(ngModel)]="regName" #registerUser="ngModel"/>
+        <div *ngIf="registerUser.errors?.required && registerUser.touched" class="danger">Username is required</div>
+        <label class="form-inline mt-2" for="password">Password :</label><input (keyup)="checkRegPass()" required id="password" type="password" class="form-control form-inline" name="regPass" [(ngModel)]="regPass" #registerPass="ngModel"/>
+        <div *ngIf="registerPass.errors?.required && registerPass.touched" class="danger">Password is required</div>
+        <label class="form-inline mt-2" for="password1">Password confirm :</label><input (keyup)="checkRegPass()" id="passwordconf" type="password" class="form-control form-inline" name="regPass1" [(ngModel)]="regPass1" #registerPass1="ngModel"/>
+        <div *ngIf="registerPass1.errors?.required && registerPass1.touched" class="danger">Password confirm is required</div>
+        <div *ngIf="!passRegMatch && registerPass.touched && registerPass1.touched" class="danger">Passwords don't match</div>
+        <label class="form-inline mt-2" for="email">Email :</label><input id="email" class="form-control form-inline" required [email]="regEmail!==''" name="regEmail" [(ngModel)]="regEmail" #registerEmail="ngModel"/>
+        <div *ngIf="registerEmail.errors?.required && registerEmail.touched" class="danger">Email is required</div>
+        <div *ngIf="registerEmail.errors?.email && registerEmail.touched" class="danger">Email is invalid</div>
+        <button [disabled]="registerEmail.errors?.email || registerEmail.errors?.required || registerPass1.errors?.required || registerPass.errors?.required || registerUser.errors?.required || !passRegMatch" type="submit" class="btn btn-danger mt-4 mb-4 col col-12 col-lg-5 mr-2" (click)="addUser()">Register</button>
+        <button id="loginShowSuccess" type="submit" class="btn btn-active mb-4 mt-lg-4 col col-12 col-lg-5 loginshow">Already user, login</button>
+      </form>
+      <form class="loginform" *ngIf="!hideloginform">
+          <h1>Login</h1>
+          <div *ngIf="msgRegSuccess" class="m-2">Thanks for your registeration, go login</div>
+          <div *ngIf="loginerror" class="m-2">Problem in logging in, try again</div>
+          <label class="form-inline mt-2" for="email">Email :</label><input required id="email-login" class="form-control form-inline" required [email]="loginEmail!==''" name="loginEmail" [(ngModel)]="loginEmail" #loginREmail="ngModel"/>
+          <div *ngIf="loginREmail.errors?.required && loginREmail.touched" class="danger">Email is required</div>
+          <div *ngIf="loginREmail.errors?.email && loginREmail.touched" class="danger">Email is invalid</div>
+          <label class="form-inline mt-2" for="password">Password :</label><input required id="password-login" type="password" class="form-control form-inline" name="loginPass" [(ngModel)]="loginPass" #loginRPass="ngModel"/>
+          <div *ngIf="loginRPass.errors?.required && loginRPass.touched" class="danger">Password is required</div>
+          <button [disabled]="loginRPass.errors?.required || loginREmail.errors?.email || loginREmail.errors?.required" type="submit" class="btn btn-danger mt-4 mb-4 col col-12 col-lg-5 mr-2" (click)="loginner()">Login</button>
+          <button type="submit" class="btn btn-active mb-4 mt-lg-4 col col-12 col-lg-5 registershow">Back</button>
+        </form>
+    </div>
+  </div>
+</div>
+<div id="getin" class="getin text-center p-3" *ngIf="loggedinzl">
+    <div class="container">
+      <div class="col col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-12 offset-0 mx-auto">
+        <div class="fonter">What's up {{zuser}}</div>
+      <div class="row">
+      <div class="col col-12 col-lg-6 mt-2 col-md-6  p-3">
+      <div class="thumbsup w-100 h-100 p-3">
+          <i class="fa fa-thumbs-up thumbico"></i><br />
+          <h5>You have been liked</h5><br />
+          <h1>200</h1><br />
+          <h5>times</h5>
+      </div>
+      </div>
+      <div class="col col-12 col-lg-6 mt-2 col-md-6 p-3">
+          <div class="thumbsup1 w-100 h-100">
+            <i class="fa fa-comment-o m-3 commico" aria-hidden="true"></i><br />
+              <h5 class="p-2">Contact us, and leave a comment</h5><br />
+          </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>

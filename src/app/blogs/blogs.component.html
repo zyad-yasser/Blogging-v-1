@@ -1,0 +1,73 @@
+<app-nav [data]="nobody"></app-nav>
+<div class="w-100 bg-dark row m-0">
+    <div class="container m-2 mx-auto blog-show">
+        <div class="row">
+            <div class="col col-12">
+                <div class="blogs p-2 pl-4 m-2 composer" *ngIf="loggedinzl">
+                    <div class="d-inline">Compose new blog</div><div class="icon creator text-center pt-1 float-right mr-2"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                    <div id="registerformer" class="loading p-5 mt-5 mx-auto text-center" *ngIf="loading"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>
+                        <div class="pr-4 cont-hid" *ngIf="!hideBlogform">
+                            <form class="hiddenData">
+                                <input required class="form-control mb-1" type="text" placeholder="Caption" name="blogName" [(ngModel)]="blog.caption" #blogRname="ngModel"/>
+                                <div *ngIf="blogRname.errors?.required && blogRname.touched" class="danger mb-1">Please enter a caption for your blog</div>
+                                <select (change)="selectValidate()" class="form-control mb-1" type="text" name="blogCat" [(ngModel)]="blog.cat" #blogRcat="ngModel">
+                                    <option disabled selected="selected" value="">Choose category</option>   
+                                    <option class="bg-danger text-white" value="gaming">Gaming</option>                         
+                                    <option class="bg-success text-white" value="technology">Technology</option>
+                                    <option class="bg-warning text-white" value="development">Development</option>
+                                    <option class="bg-info text-white" value="development">Cars</option>
+                                </select>
+                                <div *ngIf="!selectNone && blogRcat.touched" class="danger mb-1">Please select category</div>
+                                <textarea required placeholder="What do you think of ?" class="form-control mb-1" name="blogBody" [(ngModel)]="blog.body" #blogRBody="ngModel"></textarea>
+                                <div *ngIf="blogRBody.errors?.required && blogRBody.touched" class="danger mb-1">Please say something about your blog</div>
+                                <div class="imgPress d-flex text-center align-items-center justify-content-center">
+                                <input name="file" type="file" class="d-none" id="inputer1" (change)="blogImg($event)" accept="image/x-png,image/gif,image/jpeg"/>
+                                <img class="img-fluid img-thumbnail" id="imgPreview1" src="/assets/images/clr.png" width="100%" (click)="changePhoto()"/>
+                                <div class="position-absolute buttonUpload"><i class="fa fa-picture-o picBlog" aria-hidden="true" (click)="changePhoto()"></i></div>
+                                </div>
+                                <button [disabled]="blogRname.errors?.required || !selectNone" type="submit" class="btn btn-danger mt-2 col col-12" (click)="addBlog()">Post</button>
+                            </form>
+                        </div>
+                </div>
+
+                <div class="p-2 text-white">
+                <button class="btn btn-danger col col-10 col-lg-5 mt-2 mt-lg-0">Show all blogs</button><div class="btn col col-2 refresh d-inline d-lg-inline-block float-right float-lg-none "><br class="d-lg-none"/><i (click)="getBlogs()" class="fa fa-refresh" aria-hidden="true"></i></div><button class="btn btn-danger col col-10 col-lg-5 mt-2 mt-lg-0" [disabled]="!loggedinzl">My blogs</button> 
+                </div>
+
+                <div class="blogs p-2 pt-4 m-2" *ngFor="let blog of blogsShow">
+                    <div class="d-inline ml-3">{{blog.blog_title}}</div><div [class]="cats(blog.blog_cat) +' cat text-center p-2 float-lg-right mt-2 ml-3 ml-lg-0 ml-md-0 mt-lg-0 mt-md-0 float-md-right float-none mr-3'">{{blog.blog_cat}}</div>
+                        <hr class="col col-11 mx-auto">
+                        <img class="img-fluid pr-2 pl-2" [(src)]="zurl + blog.blog_photo" width="100%"/>
+                        <div class="pr-2 pl-2 pt-2 text-blog text-center">
+                        {{blog.blog_body}}
+                        </div>
+                        <hr class="col col-11 mx-auto">
+                        <div class="d-inline-block ml-2 mb-2 pt-2">Posted: {{blog.blog_date}}</div>
+                        <div *ngIf="loggedinzl && existlike(blog.blog_likes)==1" class="icon addIco text-center p-1 m-1" (click)="disliker(blog._id)" [ngStyle]="{'background-color':existlike(blog.blog_likes) == 1 ? 'darkred' : '#ee0000' }" [class.clickable]="loggedinzl"[class.like]="loggedinzl"[class.nonclickable]="!loggedinzl"><i class="fa fa-thumbs-up"></i><br>{{blog.blog_likes.length}}</div>
+                        <div *ngIf="loggedinzl && existlike(blog.blog_likes)!==1" class="icon addIco text-center p-1 m-1" (click)="liker(blog._id)" [ngStyle]="{'background-color':existlike(blog.blog_likes) == 1 ? 'darkred' : '#ee0000' }" [class.clickable]="loggedinzl"[class.like]="loggedinzl"[class.nonclickable]="!loggedinzl"><i class="fa fa-thumbs-up"></i><br>{{blog.blog_likes.length}}</div>
+                        <div *ngIf="!loggedinzl" class="icon addIco text-center p-1 m-1" [class.clickable]="loggedinzl"[class.like]="loggedinzl"[class.nonclickable]="!loggedinzl"><i class="fa fa-thumbs-up"></i><br>{{blog.blog_likes.length}}</div>
+                        <div class="icon addIco text-center p-1 m-1"><i class="fa fa-eye"></i><br>1</div>
+                </div>
+
+                <nav aria-label="..." class="mx-auto text-center d-flex mt-4 text-white">
+                    <ul class="pagination mx-auto text-center ">
+                        <li class="page-item disabled border-dark">
+                        <span class="page-link bg-danger border-dark">Previous</span>
+                        </li>
+                        <li class="page-item"><a class="page-link bg-danger border-dark" href="#">1</a></li>
+                        <li class="page-item active">
+                        <span class="page-link active border-dark">2<span class="sr-only">(current)</span></span>
+                        </li>
+                        <li class="page-item"><a class="page-link bg-danger border-dark" href="#">3</a></li>
+                        <li class="page-item">
+                        <a class="page-link bg-danger border-dark" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</div>
+          
+<app-footer></app-footer>

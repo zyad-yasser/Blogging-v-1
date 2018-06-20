@@ -1,0 +1,124 @@
+.blog-show {
+    display: none;
+}
+.blogs {
+    border-radius:5px;
+    min-height: 50px;
+    background-color: #FFF;
+    color:#000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.container {
+    max-width: 800px;
+}
+.icon,.cat {
+    width: 34px;
+    height:34px;
+    background-color:#ee0000;
+    font-size: 28px;
+    line-height: 15px;
+    color: #FFF;
+    cursor: pointer;
+}
+.cat {
+    background-color:transparent;
+    height:34px;
+    font-size: 20px;
+    width:auto;
+    font-weight: lighter;
+}
+.text-blog {
+    font-size: 16px;
+    font-weight: lighter;
+}
+.addIco {
+    font-size: 13px;
+    line-height: 15px;
+    float:right;
+}
+.clickable{
+cursor: pointer;
+}
+.like {
+    position: relative;
+    margin-top: 0px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.like:hover {
+    margin-top: 10px !important;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.nonclickable{
+    cursor: default;
+    position: relative;
+    margin-top: 0px;
+}
+.bg-danger {
+    background-color: #ee0000 !important;
+}
+.active{
+    background-color:darkred !important;
+}
+.composer {
+    
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.composer:hover,.creating {
+    cursor: pointer;
+    color:#FFF;
+    background-color:#666 !important;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.creating {
+    cursor: default !important;
+}
+.hiddenData {
+    display: none;
+}
+.img-thumbnail{
+    min-height: 200px;
+    cursor: pointer;
+}
+.btn-danger{
+    background-color: #ee0000;
+}
+.buttonUpload{
+    cursor: pointer;
+    font-size:35px;
+}
+.refresh{
+    font-size: 40px;
+    line-height: 20px;
+}
+@keyframes rotatin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+.rotating {
+    animation-name: rotatin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.danger {
+    text-align: center;
+    font-size: 14px;
+    color:#FFF;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}

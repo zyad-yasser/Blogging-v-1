@@ -1,0 +1,110 @@
+.getin {
+    background-color: #111111;
+}
+.userPhoto{
+    font-size: 50px;
+    color:#ee0000;
+    width: 100px;height:100px;
+    border: 1px solid #313030;
+    border-radius:10px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+.userPhoto:hover{
+    cursor: pointer;
+    box-shadow: inset  0px 0px 30px 1px #ee0000;
+    color:#FFF;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.btn-danger {
+    background-color:#cc0d0b; 
+}
+.loginform {
+    display: none;
+    transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+    transform: rotateY(90deg);
+}
+.loginformshow {
+    transition: 0.6s;
+	transform-style: preserve-3d;
+    transform: rotateY(0deg);
+}
+.registerformhide {
+    transition: 0.6s;
+	transform-style: preserve-3d;
+    transform: rotateY(90deg);
+}
+.registerformshow{
+    transition: 0.6s;
+	transform-style: preserve-3d;
+    transform: rotateY(0deg);
+}
+#imgPreview {
+    width:100px!important;
+    height:100px!important;
+}
+.danger {
+    color:#ee0000;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.loading {
+    font-size: 35px;
+}
+.fonter {
+    font-size: 30px;
+}
+.thumbsup {
+    cursor: default;
+    font-size: 55px;
+    line-height: 5px;
+    background-color: #ee0000;
+    padding-top: 100px !important;
+    min-height: 250px;
+}
+.thumbsup1 {
+    cursor: default;
+    font-size: 55px;
+    line-height: 5px;
+    background-color: #ee0000;
+    padding-top: 50px !important;
+    min-height: 250px;
+}
+@keyframes updown {
+    0%   {margin-top: 15px;}
+    50%  {margin-top: 40px;}
+    100%  {margin-top: 15px;}
+}
+@keyframes lr {
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(15deg);}
+
+    75%  {transform: rotate(-15deg);}
+    100%  {transform: rotate(0deg);}
+}
+.thumbico{
+    animation-name: updown;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    margin: auto;
+    left:0;
+    right:0;
+    top:15px;
+}
+.commico{
+    animation-name: lr;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}

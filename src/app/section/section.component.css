@@ -1,0 +1,32 @@
+.mySec {
+    font-size: 50px;
+    min-height: 300px;
+}
+.panel {
+    cursor: pointer;
+    opacity: 0;
+    color: #FFF;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.panel-hover {
+    opacity: 0;
+    color: #ee0000;
+    margin-top:50px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.shower {
+    opacity:1;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.row {
+    width:85%;
+}

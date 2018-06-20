@@ -1,0 +1,30 @@
+<app-nav [data]="searcher"></app-nav>
+
+    <div class="container m-2 mx-auto blog-show">
+        <div class="row">
+            <div class="col col-12">
+                <div class="blogs p-2 pl-4 m-2 composer">
+                    <div class="d-inline">Search results for : "{{searcher}}"</div>
+                    <div class="float-right mr-3">{{search.length}} Results</div>
+                </div>
+
+                <div class="blogs p-2 pt-4 m-2" *ngFor="let blog of search">
+                    <div class="d-inline ml-3">{{blog.blog_title}}</div><div [class]="cats(blog.blog_cat) +' cat text-center p-2 float-lg-right mt-2 ml-3 ml-lg-0 ml-md-0 mt-lg-0 mt-md-0 float-md-right float-none mr-3'">{{blog.blog_cat}}</div>
+                        <hr class="col col-11 mx-auto">
+                        <img class="img-fluid pr-2 pl-2" [(src)]="zurl + blog.blog_photo" width="100%"/>
+                        <div class="pr-2 pl-2 pt-2 text-blog text-center">
+                        {{blog.blog_body}}
+                        </div>
+                        <hr class="col col-11 mx-auto">
+                        <div class="d-inline-block ml-2 mb-2 pt-2">Posted: {{blog.blog_date}}</div>
+                        <div *ngIf="loggedinzl && existlike(blog.blog_likes)==1" class="icon addIco text-center p-1 m-1" (click)="disliker(blog._id)" [ngStyle]="{'background-color':existlike(blog.blog_likes) == 1 ? 'darkred' : '#ee0000' }" [class.clickable]="loggedinzl"[class.like]="loggedinzl"[class.nonclickable]="!loggedinzl"><i class="fa fa-thumbs-up"></i><br>{{blog.blog_likes.length}}</div>
+                        <div *ngIf="loggedinzl && existlike(blog.blog_likes)!==1" class="icon addIco text-center p-1 m-1" (click)="liker(blog._id)" [ngStyle]="{'background-color':existlike(blog.blog_likes) == 1 ? 'darkred' : '#ee0000' }" [class.clickable]="loggedinzl"[class.like]="loggedinzl"[class.nonclickable]="!loggedinzl"><i class="fa fa-thumbs-up"></i><br>{{blog.blog_likes.length}}</div>
+                        <div *ngIf="!loggedinzl" class="icon addIco text-center p-1 m-1" [class.clickable]="loggedinzl"[class.like]="loggedinzl"[class.nonclickable]="!loggedinzl"><i class="fa fa-thumbs-up"></i><br>{{blog.blog_likes.length}}</div>
+                        <div class="icon addIco text-center p-1 m-1"><i class="fa fa-eye"></i><br>1</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+          
+<app-footer></app-footer>

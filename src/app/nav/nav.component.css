@@ -1,0 +1,52 @@
+.btn-danger {
+    background-color:#cc0d0b; 
+}
+.line-nav {
+    width:40%;
+    height: 1px;
+    background-color:rgba(255,255,255,0.6);
+    margin: auto;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.line-nav-ov {
+    width:80%;
+    background-color:rgba(255,255,255,1);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.nav-link {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+nav {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.user-section {
+    min-height: 50px;
+    max-height: 100px;
+    background-color: #111111;
+    cursor: default;
+}
+.container {
+    max-width: 1300px;
+}
+.user-img {
+    margin-top: 5px;
+    border-radius:200px;
+}
+.user-data{
+    margin-top: 6px;
+    line-height: 18px;
+}
+.modal-dialog {
+    max-width: 80%;
+}
