@@ -39,7 +39,7 @@ export class BlogsComponent implements OnInit {
   zid='';
   zpho='';
   loggedinzl = false;
-  zurl='http://zyadyasser.com/api/'
+  zurl='http://zyadyasser.com/api/image/'
   file='';
   blog = {
     caption:'',
@@ -195,7 +195,7 @@ export class BlogsComponent implements OnInit {
   ngOnInit() {
     this.getBlogs();
     sessionStorage.setItem("containerCase", "yes");
-    if(this._cookieService.get('ZLS') && this._cookieService.get('ZLO') && this._cookieService.get('ZLX')) {
+    if(this._cookieService.get('ZLS') && this._cookieService.get('ZLX')) {
       this.loggedinzl = true;
       this.zuser = this._cookieService.get('ZLX');
       this.zid = this._cookieService.get('ZLS');

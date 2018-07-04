@@ -23,7 +23,7 @@
                                 <div class="imgPress d-flex text-center align-items-center justify-content-center">
                                 <input name="file" type="file" class="d-none" id="inputer1" (change)="blogImg($event)" accept="image/x-png,image/gif,image/jpeg"/>
                                 <img class="img-fluid img-thumbnail" id="imgPreview1" src="/assets/images/clr.png" width="100%" (click)="changePhoto()"/>
-                                <div class="position-absolute buttonUpload"><i class="fa fa-picture-o picBlog" aria-hidden="true" (click)="changePhoto()"></i></div>
+                                <div class="position-absolute buttonUpload"><i class="fa fa-picture-o picBlog text-dark" aria-hidden="true" (click)="changePhoto()"></i></div>
                                 </div>
                                 <button [disabled]="blogRname.errors?.required || !selectNone" type="submit" class="btn btn-danger mt-2 col col-12" (click)="addBlog()">Post</button>
                             </form>
@@ -55,10 +55,6 @@
                         <span class="page-link bg-danger border-dark">Previous</span>
                         </li>
                         <li class="page-item"><a class="page-link bg-danger border-dark" href="#">1</a></li>
-                        <li class="page-item active">
-                        <span class="page-link active border-dark">2<span class="sr-only">(current)</span></span>
-                        </li>
-                        <li class="page-item"><a class="page-link bg-danger border-dark" href="#">3</a></li>
                         <li class="page-item">
                         <a class="page-link bg-danger border-dark" href="#">Next</a>
                         </li>

@@ -153,7 +153,7 @@ export class GetinComponent implements OnInit {
   constructor(private http : HttpClient , private _cookieService : CookieService) { }
 
   ngOnInit() {
-    if(this._cookieService.get('ZLS') && this._cookieService.get('ZLO') && this._cookieService.get('ZLX')) {
+    if(this._cookieService.get('ZLS') && this._cookieService.get('ZLX')) {
       this.loggedinzl = true;
       this.zuser = this._cookieService.get('ZLX');
       this.zid = this._cookieService.get('ZLS');

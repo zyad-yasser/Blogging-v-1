@@ -1,11 +1,11 @@
 <footer class="w-100 text-center text-white">
     <div class="container">
   <div class="row w-100 m-0 p-0">
-    <div class="col col-12 col-lg-4 h-100">
+    <div class="col col-12 col-lg-4 h-100 users-fof">
         <h4 class="footer-bordering p-2 w-75 mx-auto">Latest Bloggers</h4>
 
-        <div class="blog-user w-75 mx-auto mt-3" *ngFor="let user of users">
-        <div class="blog-user-ico float-left mr-2"><img class="" width="50px" height="50px"[(src)]="uri + user.user_photo"></div>
+        <div class="bbz blog-user w-75 mx-auto mt-3" *ngFor="let user of users">
+        <div class="blog-user-ico float-left mr-2"><img class="" width="50px" height="50px" [(src)]="user.user_photo=='' ? deff : uri + user.user_photo"></div>
         <div class="blog-user-data float-left text-left">{{user.user_name}}<p class="footer-user-date">Joined : {{user.user_date}}</p></div>
         </div>
 

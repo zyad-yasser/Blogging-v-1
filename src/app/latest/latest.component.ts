@@ -9,7 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
   styleUrls: ['./latest.component.css']
 })
 export class LatestComponent implements OnInit {
-  zurl='http://zyadyasser.com/api/'
+  zurl='http://zyadyasser.com/api/image/'
   cats = function(arg){
     if(arg=="Gaming"){return "bg-danger"}
     else if (arg=="technology"){return "bg-success"}
@@ -22,8 +22,12 @@ let geturl = 'http://zyadyasser.com/api/blogs'
 this.http.get(geturl).subscribe((data:any)=>{
 if(data.msg !=="fail"){
 this.blogs = data 
+if(this.blogs.length>=3){
 this.blogsShow = this.blogs.slice(this.blogs.length-3 , this.blogs.length)
-for(let i=0; i<this.blogsShow.length;i++) {
+} else {
+this.blogsShow = this.blogs
+}
+for(let i=0; i<=this.blogsShow.length;i++) {
   let userid=this.blogsShow[i].blog_owner
   let geturl = 'http://zyadyasser.com/api/user/'+userid
   this.http.get(geturl).subscribe((data:any)=>{
@@ -44,6 +48,7 @@ zuser='';
   ngOnInit() {
     this.getBlogs();
     $(document).ready(function(){
+      
     $(".latest-panel").hover(function() {
       $(this).find(".increaser").animate({ width : "150%" },500);
       $(this).find(".arrow").addClass("arrow-load");

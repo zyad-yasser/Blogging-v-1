@@ -9,6 +9,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  deff="/assets/images/user.jpg";
   refreshme = function() {
     location.reload();
   }
@@ -41,7 +42,7 @@ export class NavComponent implements OnInit {
     }else{
       this.containerCase=false;
     }
-    if(this._cookieService.get('ZLS') && this._cookieService.get('ZLO') && this._cookieService.get('ZLX')) {
+    if(this._cookieService.get('ZLS') && this._cookieService.get('ZLX')) {
       this.loggedinzl = true;
       this.zuser = this._cookieService.get('ZLX');
       this.zpho = this.zurl+ this._cookieService.get('ZLO');

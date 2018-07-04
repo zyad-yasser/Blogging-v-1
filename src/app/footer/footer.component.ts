@@ -9,8 +9,9 @@ import { catchError, retry } from 'rxjs/operators';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  uri='http://zyadyasser.com/api/'
+  uri='http://zyadyasser.com/api/';
   users=[];
+  deff="/assets/images/user.jpg";
 
   constructor(private http : HttpClient) { }
 
@@ -19,17 +20,20 @@ export class FooterComponent implements OnInit {
     this.http.get(geturl).subscribe((data:any)=>{
       if(data.msg !=="fail"){
         this.users = data 
+        if(this.users.length>=4) {
         this.users = this.users.slice(this.users.length-4 , this.users.length)
+        } 
       }
     });
-    $(document).ready(function(){
-    $(".blog-user").hover(function() {
-      $(this).find(".footer-user-date").fadeIn("fast");
+    
+    $(".users-fof").hover(function() {
+      console.log("sss")
+      $(".footer-user-date").fadeIn("fast");
     },
     function(){
-      $(this).find(".footer-user-date").fadeOut("fast");
+      $(".footer-user-date").fadeOut("fast");
   });
-  });
+
   }
 
 }
